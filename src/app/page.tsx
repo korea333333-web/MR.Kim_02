@@ -348,7 +348,7 @@ function AwardsSection() {
         </div>
 
         {/* YouTube Videos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="glass-card rounded-xl p-4 hover-lift">
             <div className="aspect-video rounded-lg overflow-hidden">
               <iframe
@@ -362,6 +362,7 @@ function AwardsSection() {
                 className="rounded-lg"
               />
             </div>
+            <p className="text-[#a89a8c] text-sm mt-2 text-center">파투 코뿔소</p>
           </div>
           <div className="glass-card rounded-xl p-4 hover-lift">
             <div className="aspect-video rounded-lg overflow-hidden">
@@ -375,6 +376,51 @@ function AwardsSection() {
                 allowFullScreen
                 className="rounded-lg"
               />
+            </div>
+            <p className="text-[#a89a8c] text-sm mt-2 text-center">AI 프로젝트</p>
+          </div>
+          <div className="glass-card rounded-xl p-4 hover-lift">
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/8HUikOrpPGs"
+                title="배우 고준 IP활용 세종대왕"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg"
+              />
+            </div>
+            <p className="text-[#a89a8c] text-sm mt-2 text-center">배우 고준 IP활용 세종대왕</p>
+          </div>
+        </div>
+
+        {/* The Last Human Memory - 수상작 */}
+        <div className="glass-card rounded-2xl p-6 mb-8 hover-lift">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-xl overflow-hidden">
+              <Image
+                src="/last-human-memory.jpg"
+                alt="The Last Human Memory"
+                width={400}
+                height={500}
+                className="w-full h-auto object-cover rounded-xl"
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <h3 className="text-2xl font-bold text-[#f5ede6] mb-2">
+                The Last Human Memory
+              </h3>
+              <p className="text-xl text-[#c9a66b] mb-3">
+                최후의 인간: 기억
+              </p>
+              <p className="text-[#a89a8c] mb-4">
+                2025년 제3회 국제디지털아트초대전 우수상 수상작
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a66b]/20 text-[#c9a66b] rounded-full font-medium w-fit">
+                <span>🏆</span> 우수상
+              </div>
             </div>
           </div>
         </div>
