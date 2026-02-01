@@ -303,6 +303,43 @@ function ExperienceSection() {
 
 // Awards Section
 function AwardsSection() {
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
+
+  const projects = [
+    {
+      id: "fatu",
+      title: "Fatu 코뿔소 캠페인",
+      subtitle: "AI 기술을 활용한 보존 캠페인",
+      image: "/patou-rhino.jpg",
+      videoUrl: "https://youtu.be/4D3-EZXFmMU",
+      description: "전 세계에 단 2마리만 남은 북부흰코뿔소 Fatu의 이야기를 AI 기술로 전달하는 캠페인입니다. 사회적 기업 지파운데이션과 협업하여 AI 생성 영상과 이미지를 제작했으며, 코엑스와 안양천 서서울 새사랑 걷기 캠페인에서 전시되었습니다. 멸종 위기 동물 보호의 중요성을 알리는 의미 있는 프로젝트입니다.",
+      technologies: ["Runway", "Midjourney", "DaVinci Resolve", "After Effects"],
+      tags: ["AI Video", "Social Campaign", "Conservation"],
+    },
+    {
+      id: "sejong",
+      title: "배우 고준 IP활용 세종대왕",
+      subtitle: "AI 기반 역사 콘텐츠 제작",
+      image: null,
+      videoUrl: "https://youtu.be/8HUikOrpPGs",
+      embedUrl: "https://www.youtube.com/embed/8HUikOrpPGs",
+      description: "배우 고준의 IP를 활용하여 세종대왕을 AI 기술로 재현한 프로젝트입니다.",
+      technologies: ["AI Video Generation", "Character IP"],
+      tags: ["AI Video", "Historical Content"],
+    },
+    {
+      id: "ai-project",
+      title: "AI 프로젝트",
+      subtitle: "생성형 AI 활용 콘텐츠",
+      image: null,
+      videoUrl: "https://youtu.be/M4EOp59im_M",
+      embedUrl: "https://www.youtube.com/embed/M4EOp59im_M",
+      description: "생성형 AI를 활용한 창작 프로젝트입니다.",
+      technologies: ["Generative AI", "Video Production"],
+      tags: ["AI Content", "Creative"],
+    },
+  ];
+
   const awards = [
     { title: "한국게임학회", org: "탕산 국제초대전 Special Prize" },
     { title: "한국디자인학회", org: "학술 발표" },
@@ -316,84 +353,51 @@ function AwardsSection() {
           수상 및 전시
         </h2>
 
-        {/* 파투 코뿔소 프로젝트 - Featured */}
-        <div className="glass-card rounded-2xl p-6 mb-8 hover-lift glow">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl overflow-hidden">
-              <Image
-                src="/patou-rhino.jpg"
-                alt="파투 코뿔소"
-                width={400}
-                height={225}
-                className="w-full h-auto object-cover rounded-xl"
-              />
-            </div>
-            <div className="flex flex-col justify-center">
-              <h3 className="text-2xl font-bold text-[#f5ede6] mb-3">
-                파투 코뿔소
+        {/* Portfolio Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              onClick={() => setSelectedProject(project.id)}
+              className="glass-card rounded-2xl p-4 hover-lift cursor-pointer group"
+            >
+              <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-[#2c2520]">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={400}
+                    height={225}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                ) : project.embedUrl ? (
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={project.embedUrl}
+                    title={project.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : null}
+              </div>
+              <h3 className="text-xl font-bold text-[#f5ede6] mb-2">
+                {project.title}
               </h3>
-              <p className="text-[#a89a8c] mb-4">
-                AI 기술을 활용한 아트 프로젝트
-              </p>
-              <a
-                href="https://youtu.be/4D3-EZXFmMU"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a66b] hover:bg-[#d4b88a] text-[#1a1614] rounded-full font-medium transition-all w-fit"
-              >
-                <span>▶</span> 영상 보기
-              </a>
+              <p className="text-[#a89a8c] text-sm mb-3">{project.subtitle}</p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag, i) => (
+                  <span
+                    key={i}
+                    className="px-2 py-1 bg-[#c9a66b]/20 text-[#c9a66b] text-xs rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-
-        {/* YouTube Videos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="glass-card rounded-xl p-4 hover-lift">
-            <div className="aspect-video rounded-lg overflow-hidden">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/4D3-EZXFmMU"
-                title="파투 코뿔소"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="rounded-lg"
-              />
-            </div>
-            <p className="text-[#a89a8c] text-sm mt-2 text-center">파투 코뿔소</p>
-          </div>
-          <div className="glass-card rounded-xl p-4 hover-lift">
-            <div className="aspect-video rounded-lg overflow-hidden">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/M4EOp59im_M"
-                title="AI 프로젝트"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="rounded-lg"
-              />
-            </div>
-            <p className="text-[#a89a8c] text-sm mt-2 text-center">AI 프로젝트</p>
-          </div>
-          <div className="glass-card rounded-xl p-4 hover-lift">
-            <div className="aspect-video rounded-lg overflow-hidden">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/8HUikOrpPGs"
-                title="배우 고준 IP활용 세종대왕"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="rounded-lg"
-              />
-            </div>
-            <p className="text-[#a89a8c] text-sm mt-2 text-center">배우 고준 IP활용 세종대왕</p>
-          </div>
+          ))}
         </div>
 
         {/* The Last Human Memory - 수상작 */}
@@ -440,6 +444,114 @@ function AwardsSection() {
           ))}
         </div>
       </div>
+
+      {/* Modal Popup */}
+      {selectedProject && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="glass-card rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {projects.filter((p) => p.id === selectedProject).map((project) => (
+              <div key={project.id}>
+                {/* Header */}
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-2xl font-bold text-[#f5ede6]">
+                    {project.title}
+                  </h3>
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="text-[#a89a8c] hover:text-[#f5ede6] text-2xl"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                {/* Video or Image */}
+                <div className="aspect-video rounded-xl overflow-hidden mb-6 bg-[#2c2520]">
+                  {project.embedUrl ? (
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={project.embedUrl || `https://www.youtube.com/embed/${project.videoUrl?.split('/').pop()}`}
+                      title={project.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={338}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : null}
+                </div>
+
+                {/* Description */}
+                <p className="text-[#d4c4b0] leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="mb-6">
+                  <h4 className="text-[#c9a66b] font-medium mb-3">사용 기술</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-[#2c2520] text-[#f5ede6] text-sm rounded-lg"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tags */}
+                <div className="mb-6">
+                  <h4 className="text-[#c9a66b] font-medium mb-3">태그</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-[#c9a66b]/20 text-[#c9a66b] text-sm rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-4">
+                  {project.videoUrl && (
+                    <a
+                      href={project.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#c9a66b] hover:bg-[#d4b88a] text-[#1a1614] rounded-full font-medium transition-all"
+                    >
+                      <span>▶</span> 포트폴리오 보기
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="px-6 py-3 glass-card rounded-full font-medium text-[#f5ede6] hover:bg-[#3d352e] transition-all"
+                  >
+                    닫기
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
