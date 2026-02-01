@@ -361,6 +361,17 @@ function AwardsSection() {
       tags: ["AI Video", "Commercial", "Competition"],
     },
     {
+      id: "posco",
+      title: "POSCO 체인지업 AI 광고",
+      subtitle: "포스코 AI 광고 영상 제작",
+      image: null,
+      videoUrl: "https://www.youtube.com/watch?v=CMOxjiYJddU",
+      embedUrl: "https://www.youtube.com/embed/CMOxjiYJddU",
+      description: "POSCO 체인지업을 위한 AI 기술 기반 광고 영상입니다. 생성형 AI를 활용하여 기업 브랜딩 영상을 제작했습니다.",
+      technologies: ["AI Video Generation", "Runway", "After Effects"],
+      tags: ["AI Video", "Commercial", "Corporate"],
+    },
+    {
       id: "last-human-memory",
       title: "The Last Human Memory",
       subtitle: "최후의 인간: 기억",
