@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --accent: #6366f1;
-  --accent-light: #818cf8;
-  --card-bg: #18181b;
-  --card-border: #27272a;
-  --text-muted: #a1a1aa;
+  /* Sepia/Warm Brown Color Scheme - 원본 페이지와 비슷한 따뜻한 톤 */
+  --background: #1a1614;
+  --foreground: #f5ede6;
+  --accent: #c9a66b;
+  --accent-light: #d4b88a;
+  --card-bg: #231f1c;
+  --card-border: #3d352e;
+  --text-muted: #a89a8c;
+  --sepia-dark: #2c2520;
+  --sepia-glow: rgba(201, 166, 107, 0.15);
 }
 
 @theme inline {
@@ -46,17 +49,17 @@ html {
   background: var(--text-muted);
 }
 
-/* Gradient text utility */
+/* Gradient text utility - Sepia/Gold */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, #e8d4b8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glassmorphism card */
+/* Glassmorphism card - Warm tone */
 .glass-card {
-  background: rgba(24, 24, 27, 0.8);
+  background: rgba(35, 31, 28, 0.85);
   backdrop-filter: blur(12px);
   border: 1px solid var(--card-border);
 }
@@ -68,7 +71,7 @@ html {
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 20px 40px var(--sepia-glow);
 }
 
 /* Section fade-in animation */
@@ -77,6 +80,7 @@ html {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -87,7 +91,18 @@ html {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-/* Glow effect */
+/* Glow effect - Warm gold */
 .glow {
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 40px var(--sepia-glow);
+}
+
+/* Sepia background pattern */
+.sepia-bg {
+  background: linear-gradient(135deg, var(--background) 0%, var(--sepia-dark) 100%);
+}
+
+/* Profile image styles */
+.profile-image {
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 30px var(--sepia-glow);
 }
