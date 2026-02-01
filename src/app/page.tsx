@@ -131,43 +131,65 @@ function HeroSection() {
 function AboutSection() {
   return (
     <section id="about" className="py-24 px-6 sepia-bg">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 gradient-text text-center">
           소개
         </h2>
-        <div className="glass-card rounded-2xl p-8 hover-lift">
-          <p className="text-lg text-[#d4c4b0] leading-relaxed mb-6">
-            사진, 사운드, 영상 — 다양한 매체를 넘나들며 콘텐츠를 기획하고
-            창작해온 융합형 아티스트입니다. 사진 스튜디오 운영부터 사운드
-            디자인, 그리고 대학과 기업에서의 교육까지, 매체의 경계를 넘어 늘
-            새로운 것을 만들어왔습니다.
-          </p>
-          <p className="text-lg text-[#d4c4b0] leading-relaxed">
-            현재는 AI라는 강력한 도구와 함께, 이미지 생성부터 영상 제작,
-            사운드까지 창작의 모든 영역에서 가능성을 탐구하고 있습니다. 단순히
-            기술을 사용하는 것을 넘어,{" "}
-            <span className="text-[#c9a66b] font-medium">
-              누구나 자신의 창작 역량을 수십 배로 키울 수 있도록 돕는 일
-            </span>{" "}
-            — 그것이 지금 제가 집중하고 있는 일입니다.
-          </p>
 
-          {/* Info cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            <div className="bg-[#1a1614]/50 rounded-xl p-4 border border-[#3d352e]">
-              <div className="text-sm text-[#8b7355] mb-1">Location</div>
-              <div className="text-[#f5ede6]">Seoul, Korea</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          {/* Left - Profile Photo */}
+          <div className="flex flex-col items-center">
+            <div className="relative mb-4">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a66b]/30 to-[#8b7355]/30 rounded-full blur-xl transform scale-110" />
+              <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#c9a66b]/30 glow">
+                <Image
+                  src="/profile.jpg"
+                  alt="김승욱"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
-            <div className="bg-[#1a1614]/50 rounded-xl p-4 border border-[#3d352e]">
-              <div className="text-sm text-[#8b7355] mb-1">Affiliation</div>
-              <div className="text-[#f5ede6]">광운대학교 정보과학교육원</div>
-            </div>
-            <div className="bg-[#1a1614]/50 rounded-xl p-4 border border-[#3d352e]">
-              <div className="text-sm text-[#8b7355] mb-1">Education</div>
-              <div className="text-[#f5ede6] text-sm">
-                공주대 게임디자인 박사
-                <br />
-                상명대 컴퓨터음악 석사
+            <h3 className="text-xl font-bold text-[#f5ede6] mb-1">김승욱</h3>
+            <p className="text-[#c9a66b] text-sm">Seungwook Kim</p>
+            <p className="text-[#8b7355] text-sm mt-1">QuantumAI LAB 대표</p>
+          </div>
+
+          {/* Right - About Text */}
+          <div className="md:col-span-2 glass-card rounded-2xl p-8 hover-lift">
+            <p className="text-lg text-[#d4c4b0] leading-relaxed mb-6">
+              사진, 사운드, 영상 — 다양한 매체를 넘나들며 콘텐츠를 기획하고
+              창작해온 융합형 아티스트입니다. 사진 스튜디오 운영부터 사운드
+              디자인, 그리고 대학과 기업에서의 교육까지, 매체의 경계를 넘어 늘
+              새로운 것을 만들어왔습니다.
+            </p>
+            <p className="text-lg text-[#d4c4b0] leading-relaxed">
+              현재는 AI라는 강력한 도구와 함께, 이미지 생성부터 영상 제작,
+              사운드까지 창작의 모든 영역에서 가능성을 탐구하고 있습니다. 단순히
+              기술을 사용하는 것을 넘어,{" "}
+              <span className="text-[#c9a66b] font-medium">
+                누구나 자신의 창작 역량을 수십 배로 키울 수 있도록 돕는 일
+              </span>{" "}
+              — 그것이 지금 제가 집중하고 있는 일입니다.
+            </p>
+
+            {/* Info cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+              <div className="bg-[#1a1614]/50 rounded-xl p-4 border border-[#3d352e]">
+                <div className="text-sm text-[#8b7355] mb-1">Location</div>
+                <div className="text-[#f5ede6]">Seoul, Korea</div>
+              </div>
+              <div className="bg-[#1a1614]/50 rounded-xl p-4 border border-[#3d352e]">
+                <div className="text-sm text-[#8b7355] mb-1">Affiliation</div>
+                <div className="text-[#f5ede6]">광운대학교 정보과학교육원</div>
+              </div>
+              <div className="bg-[#1a1614]/50 rounded-xl p-4 border border-[#3d352e]">
+                <div className="text-sm text-[#8b7355] mb-1">Education</div>
+                <div className="text-[#f5ede6] text-sm">
+                  공주대 게임디자인 박사
+                  <br />
+                  상명대 컴퓨터음악 석사
+                </div>
               </div>
             </div>
           </div>
