@@ -312,6 +312,7 @@ function AwardsSection() {
       subtitle: "AI 기술을 활용한 보존 캠페인",
       image: "/patou-rhino.jpg",
       videoUrl: "https://youtu.be/4D3-EZXFmMU",
+      embedUrl: "https://www.youtube.com/embed/4D3-EZXFmMU",
       description: "전 세계에 단 2마리만 남은 북부흰코뿔소 Fatu의 이야기를 AI 기술로 전달하는 캠페인입니다. 사회적 기업 지파운데이션과 협업하여 AI 생성 영상과 이미지를 제작했으며, 코엑스와 안양천 서서울 새사랑 걷기 캠페인에서 전시되었습니다. 멸종 위기 동물 보호의 중요성을 알리는 의미 있는 프로젝트입니다.",
       technologies: ["Runway", "Midjourney", "DaVinci Resolve", "After Effects"],
       tags: ["AI Video", "Social Campaign", "Conservation"],
@@ -338,10 +339,21 @@ function AwardsSection() {
       technologies: ["Generative AI", "Video Production"],
       tags: ["AI Content", "Creative"],
     },
+    {
+      id: "last-human-memory",
+      title: "The Last Human Memory",
+      subtitle: "최후의 인간: 기억",
+      image: "/last-human-memory.jpg",
+      videoUrl: null,
+      embedUrl: null,
+      description: "인류 마지막 순간의 기억을 담은 AI 디지털 아트 시리즈입니다. AI 시대에 인간의 기억과 정체성이 어떻게 변화하고 보존될 수 있는지에 대한 철학적 질문을 담았습니다. 한국게임학회 주최 제3회 국제디지털아트초대전에서 우수상을 수상했습니다.",
+      technologies: ["Midjourney", "Stable Diffusion", "ComfyUI"],
+      tags: ["Digital Art", "AI Generation", "Exhibition"],
+      award: "🏆 2025 제3회 국제디지털아트초대전 우수상 (한국게임학회)",
+    },
   ];
 
   const awards = [
-    { title: "한국게임학회", org: "탕산 국제초대전 Special Prize" },
     { title: "한국디자인학회", org: "학술 발표" },
     { title: "서울 국제 AI 영화제 우수상", org: "AI 제작 영화 부문" },
   ];
@@ -398,35 +410,6 @@ function AwardsSection() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* The Last Human Memory - 수상작 */}
-        <div className="glass-card rounded-2xl p-6 mb-8 hover-lift">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl overflow-hidden">
-              <Image
-                src="/last-human-memory.jpg"
-                alt="The Last Human Memory"
-                width={400}
-                height={500}
-                className="w-full h-auto object-cover rounded-xl"
-              />
-            </div>
-            <div className="flex flex-col justify-center">
-              <h3 className="text-2xl font-bold text-[#f5ede6] mb-2">
-                The Last Human Memory
-              </h3>
-              <p className="text-xl text-[#c9a66b] mb-3">
-                최후의 인간: 기억
-              </p>
-              <p className="text-[#a89a8c] mb-4">
-                2025년 제3회 국제디지털아트초대전 우수상 수상작
-              </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a66b]/20 text-[#c9a66b] rounded-full font-medium w-fit">
-                <span>🏆</span> 우수상
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Other Awards */}
@@ -527,6 +510,13 @@ function AwardsSection() {
                     ))}
                   </div>
                 </div>
+
+                {/* Award if exists */}
+                {project.award && (
+                  <div className="mb-6 p-4 bg-[#c9a66b]/10 rounded-xl border border-[#c9a66b]/30">
+                    <p className="text-[#c9a66b] font-medium">{project.award}</p>
+                  </div>
+                )}
 
                 {/* Action Buttons */}
                 <div className="flex gap-4">
