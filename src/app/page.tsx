@@ -304,7 +304,6 @@ function ExperienceSection() {
 // Awards Section
 function AwardsSection() {
   const awards = [
-    { title: "신세계 백화점 본점 전시", org: "제3회 국제디지털아트초대전 우수상" },
     { title: "한국게임학회", org: "탕산 국제초대전 Special Prize" },
     { title: "한국디자인학회", org: "학술 발표" },
     { title: "서울 국제 AI 영화제 우수상", org: "AI 제작 영화 부문" },
@@ -316,7 +315,72 @@ function AwardsSection() {
         <h2 className="text-3xl md:text-4xl font-bold mb-12 gradient-text">
           수상 및 전시
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        {/* 파투 코뿔소 프로젝트 - Featured */}
+        <div className="glass-card rounded-2xl p-6 mb-8 hover-lift glow">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-xl overflow-hidden">
+              <Image
+                src="/patou-rhino.jpg"
+                alt="파투 코뿔소"
+                width={400}
+                height={225}
+                className="w-full h-auto object-cover rounded-xl"
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <h3 className="text-2xl font-bold text-[#f5ede6] mb-3">
+                파투 코뿔소
+              </h3>
+              <p className="text-[#a89a8c] mb-4">
+                AI 기술을 활용한 아트 프로젝트
+              </p>
+              <a
+                href="https://youtu.be/4D3-EZXFmMU"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a66b] hover:bg-[#d4b88a] text-[#1a1614] rounded-full font-medium transition-all w-fit"
+              >
+                <span>▶</span> 영상 보기
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* YouTube Videos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="glass-card rounded-xl p-4 hover-lift">
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/4D3-EZXFmMU"
+                title="파투 코뿔소"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg"
+              />
+            </div>
+          </div>
+          <div className="glass-card rounded-xl p-4 hover-lift">
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/M4EOp59im_M"
+                title="AI 프로젝트"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Other Awards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {awards.map((award, index) => (
             <div key={index} className="glass-card rounded-xl p-6 hover-lift">
               <div className="w-12 h-12 bg-[#c9a66b]/20 rounded-xl flex items-center justify-center mb-4">
