@@ -52,72 +52,73 @@ function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden sepia-bg"
+      className="min-h-screen flex items-center relative overflow-hidden sepia-bg"
     >
       {/* Background gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#c9a66b]/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#8b7355]/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#c9a66b]/5 rounded-full blur-3xl" />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Profile Image */}
-        <div className="mb-8">
-          <div className="w-40 h-40 mx-auto rounded-full profile-image bg-[#2c2520] flex items-center justify-center overflow-hidden">
-            <Image
-              src="/profile.jpg"
-              alt="김승욱"
-              width={160}
-              height={160}
-              className="object-cover w-full h-full"
-              priority
-            />
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Left - Text Content */}
+          <div className="order-2 md:order-1">
+            <div className="mb-6">
+              <span className="inline-block px-4 py-2 rounded-full text-sm glass-card text-[#c9a66b] glow">
+                QuantumAI LAB 대표
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-4">
+              <span className="gradient-text">김승욱</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-[#a89a8c] mb-2">Seungwook Kim</p>
+            <p className="text-lg md:text-xl text-[#8b7355] max-w-lg mb-8 leading-relaxed">
+              AI 콘텐츠 제작, 사운드 디자인, 그리고 교육을 통해
+              창의성과 기술의 경계를 넓혀가고 있습니다.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#projects"
+                className="px-8 py-4 bg-[#c9a66b] hover:bg-[#d4b88a] text-[#1a1614] rounded-full font-medium transition-all hover-lift text-center"
+              >
+                프로젝트 보기
+              </a>
+              <a
+                href="#contact"
+                className="px-8 py-4 glass-card rounded-full font-medium transition-all hover-lift text-[#f5ede6] text-center"
+              >
+                연락하기
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-12 flex gap-12">
+              <div>
+                <div className="text-3xl font-bold text-[#c9a66b]">Current</div>
+                <div className="text-sm text-[#8b7355]">QuantumAI LAB 대표</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#c9a66b]">20+ Years</div>
+                <div className="text-sm text-[#8b7355]">Creative Experience</div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="mb-6">
-          <span className="inline-block px-4 py-2 rounded-full text-sm glass-card text-[#c9a66b]">
-            QuantumAI LAB 대표
-          </span>
-        </div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-4">
-          <span className="gradient-text">김승욱</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-[#a89a8c] mb-2">Seungwook Kim</p>
-        <p className="text-lg md:text-xl text-[#8b7355] max-w-2xl mx-auto mb-8">
-          AI 콘텐츠 제작, 사운드 디자인, 그리고 교육을 통해
-          <br />
-          창의성과 기술의 경계를 넓혀가고 있습니다.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
-          <a
-            href="#projects"
-            className="px-8 py-4 bg-[#c9a66b] hover:bg-[#d4b88a] text-[#1a1614] rounded-full font-medium transition-all hover-lift"
-          >
-            프로젝트 보기
-          </a>
-          <a
-            href="/resume.pdf"
-            download="김승욱_이력서.pdf"
-            className="px-8 py-4 bg-[#8b7355] hover:bg-[#a08060] text-[#f5ede6] rounded-full font-medium transition-all hover-lift inline-flex items-center gap-2"
-          >
-            📄 이력서 다운로드
-          </a>
-          <a
-            href="#contact"
-            className="px-8 py-4 glass-card rounded-full font-medium transition-all hover-lift text-[#f5ede6]"
-          >
-            연락하기
-          </a>
-        </div>
-
-        {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 gap-8">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#c9a66b]">Current</div>
-            <div className="text-sm text-[#8b7355]">QuantumAI LAB 대표</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#c9a66b]">20+ Years</div>
-            <div className="text-sm text-[#8b7355]">Creative Experience</div>
+          {/* Right - Profile Image */}
+          <div className="order-1 md:order-2 flex justify-center md:justify-end">
+            <div className="relative">
+              {/* Glow effect behind image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a66b]/30 to-[#8b7355]/30 rounded-2xl blur-2xl transform scale-110" />
+              <div className="relative w-64 md:w-80 h-80 md:h-[450px] rounded-2xl overflow-hidden profile-image glow">
+                <Image
+                  src="/profile.jpg"
+                  alt="김승욱"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
