@@ -383,9 +383,58 @@ function AwardsSection() {
           수상 및 전시
         </h2>
 
-        {/* Portfolio Cards Grid */}
+        {/* Digital Art Works - Large Display */}
+        <div className="space-y-8 mb-12">
+          {projects.filter(p => p.id === "last-human-memory" || p.id === "eye-of-abyss").map((project) => (
+            <div
+              key={project.id}
+              onClick={() => setSelectedProject(project.id)}
+              className="glass-card rounded-2xl p-6 hover-lift cursor-pointer glow"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="rounded-xl overflow-hidden">
+                  <Image
+                    src={project.image!}
+                    alt={project.title}
+                    width={400}
+                    height={500}
+                    className="w-full h-auto object-cover rounded-xl hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-2xl font-bold text-[#f5ede6] mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-xl text-[#c9a66b] mb-3">
+                    {project.subtitle}
+                  </p>
+                  <p className="text-[#a89a8c] mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
+                  {project.award && (
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a66b]/20 text-[#c9a66b] rounded-full font-medium w-fit mb-4">
+                      {project.award}
+                    </div>
+                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 bg-[#c9a66b]/10 text-[#c9a66b] text-xs rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Video Projects - Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {projects.map((project) => (
+          {projects.filter(p => p.id !== "last-human-memory" && p.id !== "eye-of-abyss").map((project) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(project.id)}
