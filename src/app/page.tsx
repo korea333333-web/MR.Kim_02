@@ -87,12 +87,19 @@ function HeroSection() {
           <br />
           창의성과 기술의 경계를 넓혀가고 있습니다.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
           <a
             href="#projects"
             className="px-8 py-4 bg-[#c9a66b] hover:bg-[#d4b88a] text-[#1a1614] rounded-full font-medium transition-all hover-lift"
           >
             프로젝트 보기
+          </a>
+          <a
+            href="/resume.pdf"
+            download="김승욱_이력서.pdf"
+            className="px-8 py-4 bg-[#8b7355] hover:bg-[#a08060] text-[#f5ede6] rounded-full font-medium transition-all hover-lift inline-flex items-center gap-2"
+          >
+            📄 이력서 다운로드
           </a>
           <a
             href="#contact"
