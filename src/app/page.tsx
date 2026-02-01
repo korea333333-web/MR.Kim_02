@@ -358,10 +358,21 @@ function AwardsSection() {
       tags: ["Digital Art", "AI Generation", "Exhibition"],
       award: "🏆 2025 제3회 국제디지털아트초대전 우수상 (한국게임학회)",
     },
+    {
+      id: "eye-of-abyss",
+      title: "The Eye of Abyss",
+      subtitle: "환상과 현실 사이의 경계",
+      image: "/eye-of-abyss.jpg",
+      videoUrl: null,
+      embedUrl: null,
+      description: "환상과 현실 사이의 경계를 탐구하는 AI 디지털 아트 작품입니다. 심연의 눈이라는 주제로, 인간의 내면 깊숙한 곳에 존재하는 무의식의 세계를 시각화했습니다. Midjourney와 Stable Diffusion을 활용하여 초현실적인 이미지를 생성하고, 후보정을 통해 완성했습니다.",
+      technologies: ["Midjourney", "Stable Diffusion", "Photoshop"],
+      tags: ["Digital Art", "AI Art", "International"],
+      award: "🏆 2025 탕산 국제초대전 Special Prize (한국디자인학회)",
+    },
   ];
 
   const awards = [
-    { title: "한국디자인학회", org: "학술 발표" },
     { title: "서울 국제 AI 영화제 우수상", org: "AI 제작 영화 부문" },
   ];
 
