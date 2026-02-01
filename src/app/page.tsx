@@ -62,7 +62,7 @@ function HeroSection() {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left - Text Content */}
-          <div className="order-2 md:order-1">
+          <div className="order-1">
             <div className="mb-6">
               <span className="inline-block px-4 py-2 rounded-full text-sm glass-card text-[#c9a66b] glow">
                 QuantumAI LAB 대표
@@ -105,7 +105,7 @@ function HeroSection() {
           </div>
 
           {/* Right - Profile Video */}
-          <div className="order-1 md:order-2 flex justify-center md:justify-end">
+          <div className="order-2 flex justify-center md:justify-end mt-8 md:mt-0">
             <div className="relative">
               {/* Glow effect behind video */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#c9a66b]/30 to-[#8b7355]/30 rounded-2xl blur-2xl transform scale-110" />
@@ -140,17 +140,16 @@ function AboutSection() {
           {/* Left - Profile Photo */}
           <div className="flex flex-col items-center">
             <div className="relative mb-4">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a66b]/30 to-[#8b7355]/30 rounded-full blur-xl transform scale-110" />
-              <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#c9a66b]/30 glow">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a66b]/30 to-[#8b7355]/30 rounded-xl blur-xl transform scale-110" />
+              <div className="relative w-48 h-60 rounded-xl overflow-hidden border-2 border-[#c9a66b]/30 glow">
                 <Image
                   src="/profile.jpg"
                   alt="김승욱"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
             </div>
-            <h3 className="text-xl font-bold text-[#f5ede6] mb-1">김승욱</h3>
             <p className="text-[#c9a66b] text-sm">Seungwook Kim</p>
             <p className="text-[#8b7355] text-sm mt-1">QuantumAI LAB 대표</p>
           </div>
