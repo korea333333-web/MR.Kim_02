@@ -111,7 +111,7 @@ function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#c9a66b]/30 to-[#8b7355]/30 rounded-2xl blur-2xl transform scale-110" />
               <div className="relative w-64 md:w-80 h-80 md:h-[450px] rounded-2xl overflow-hidden profile-image glow">
                 <video
-                  src="/kling_20251107.mp4"
+                  src="/hero-video.mp4"
                   autoPlay
                   loop
                   muted
