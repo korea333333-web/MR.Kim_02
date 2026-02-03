@@ -447,8 +447,8 @@ function AwardsSection() {
               onClick={() => setSelectedProject(project.id)}
               className="glass-card rounded-2xl p-6 hover-lift cursor-pointer glow"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="rounded-xl overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+                <div className="rounded-xl overflow-hidden h-fit">
                   <Image
                     src={project.image!}
                     alt={project.title}
@@ -554,11 +554,11 @@ function AwardsSection() {
       {/* Modal Popup */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="glass-card rounded-2xl p-6 max-w-5xl w-full max-h-[90vh] overflow-y-auto"
+            className="glass-card rounded-2xl p-6 max-w-6xl w-full max-h-[95vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {projects.filter((p) => p.id === selectedProject).map((project) => (
@@ -576,10 +576,10 @@ function AwardsSection() {
                   </button>
                 </div>
 
-                {/* Video or Image */}
-                <div className="w-full rounded-xl overflow-hidden mb-8 bg-[#2c2520]">
+                {/* Video or ImageContainer */}
+                <div className="w-full rounded-xl overflow-hidden mb-8 bg-[#1a0f0f] flex justify-center items-center min-h-[300px]">
                   {project.embedUrl ? (
-                    <div className="aspect-video">
+                    <div className="w-full aspect-video">
                       <iframe
                         width="100%"
                         height="100%"
@@ -591,13 +591,16 @@ function AwardsSection() {
                       />
                     </div>
                   ) : project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={1200}
-                      height={675}
-                      className="w-full h-auto object-contain max-h-[70vh]"
-                    />
+                    <div className="relative w-full h-auto max-h-[70vh]">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={1200}
+                        height={800}
+                        style={{ width: '100%', height: 'auto', maxHeight: '70vh', objectFit: 'contain' }}
+                        className="rounded-lg"
+                      />
+                    </div>
                   ) : null}
                 </div>
 
