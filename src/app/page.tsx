@@ -558,43 +558,45 @@ function AwardsSection() {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="glass-card rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            className="glass-card rounded-2xl p-6 max-w-5xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {projects.filter((p) => p.id === selectedProject).map((project) => (
               <div key={project.id}>
                 {/* Header */}
                 <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl font-bold text-[#f5ede6]">
+                  <h3 className="text-3xl font-bold text-[#f5ede6]">
                     {project.title}
                   </h3>
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="text-[#a89a8c] hover:text-[#f5ede6] text-2xl"
+                    className="text-[#a89a8c] hover:text-[#f5ede6] text-3xl"
                   >
                     ✕
                   </button>
                 </div>
 
                 {/* Video or Image */}
-                <div className="aspect-video rounded-xl overflow-hidden mb-6 bg-[#2c2520]">
+                <div className="w-full rounded-xl overflow-hidden mb-8 bg-[#2c2520]">
                   {project.embedUrl ? (
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={project.embedUrl || `https://www.youtube.com/embed/${project.videoUrl?.split('/').pop()}`}
-                      title={project.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
+                    <div className="aspect-video">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={project.embedUrl || `https://www.youtube.com/embed/${project.videoUrl?.split('/').pop()}`}
+                        title={project.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
                   ) : project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
-                      width={600}
-                      height={338}
-                      className="w-full h-full object-cover"
+                      width={1200}
+                      height={675}
+                      className="w-full h-auto object-contain max-h-[70vh]"
                     />
                   ) : null}
                 </div>
