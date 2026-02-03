@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Sepia/Warm Brown Color Scheme - 원본 페이지와 비슷한 따뜻한 톤 */
-  --background: #1a1614;
-  --foreground: #f5ede6;
-  --accent: #c9a66b;
-  --accent-light: #d4b88a;
-  --card-bg: #231f1c;
-  --card-border: #3d352e;
-  --text-muted: #a89a8c;
-  --sepia-dark: #2c2520;
-  --sepia-glow: rgba(201, 166, 107, 0.15);
+  /* Red/Crimson Color Scheme - 붉은색 테마 */
+  --background: #0f0202;
+  --foreground: #fdecec;
+  --accent: #dc143c;
+  --accent-light: #ff4d6d;
+  --card-bg: #1f0505;
+  --card-border: #3d0a0a;
+  --text-muted: #b38080;
+  --sepia-dark: #2c0505;
+  --sepia-glow: rgba(220, 20, 60, 0.25);
 }
 
 @theme inline {
