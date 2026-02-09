@@ -729,6 +729,217 @@ function LecturesSection() {
   );
 }
 
+// Guestbook Section
+function GuestbookSection() {
+  const [messages, setMessages] = useState<{ id: number; name: string; message: string; createdAt: string }[]>([]);
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [password, setPassword] = useState(""); // For creating
+  const [deletePassword, setDeletePassword] = useState(""); // For deleting
+  const [deleteTargetId, setDeleteTargetId] = useState<number | null>(null); // Which message to delete
+  const [loading, setLoading] = useState(false);
+
+  const fetchMessages = async () => {
+    try {
+      const res = await fetch("/api/guestbook");
+      const data = await res.json();
+      setMessages(data.messages);
+    } catch (error) {
+      console.error("Failed to fetch messages:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchMessages();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !message.trim() || !password.trim()) return;
+
+    setLoading(true);
+    try {
+      await fetch("/api/guestbook", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, message, password }),
+      });
+      setName("");
+      setMessage("");
+      setPassword("");
+      await fetchMessages();
+    } catch (error) {
+      console.error("Failed to post message:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!deleteTargetId || !deletePassword.trim()) return;
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/guestbook", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: deleteTargetId, password: deletePassword }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || "삭제에 실패했습니다.");
+      } else {
+        alert("삭제되었습니다.");
+        setDeleteTargetId(null);
+        setDeletePassword("");
+        await fetchMessages();
+      }
+    } catch (error) {
+      console.error("Failed to delete message:", error);
+      alert("오류가 발생했습니다.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <section id="guestbook" className="py-24 px-6 bg-[#1a1614] relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#c9a66b]/5 rounded-full blur-3xl" />
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text text-center">
+          방명록
+        </h2>
+        <p className="text-[#8b7355] mb-12 text-center">
+          다녀가신 흔적을 남겨주세요.
+        </p>
+
+        {/* Input Form */}
+        <div className="glass-card rounded-2xl p-8 mb-12 border border-[#c9a66b]/20">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-[#c9a66b] mb-2">이름</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full bg-[#1a1614]/50 border border-[#3d352e] rounded-lg px-4 py-3 text-[#f5ede6] focus:border-[#c9a66b] focus:outline-none transition-colors"
+                  placeholder="Create your name"
+                  maxLength={50}
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-[#c9a66b] mb-2">비밀번호 (삭제용)</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full bg-[#1a1614]/50 border border-[#3d352e] rounded-lg px-4 py-3 text-[#f5ede6] focus:border-[#c9a66b] focus:outline-none transition-colors"
+                  placeholder="Password"
+                  maxLength={20}
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-[#c9a66b] mb-2">메시지</label>
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="w-full bg-[#1a1614]/50 border border-[#3d352e] rounded-lg px-4 py-3 text-[#f5ede6] focus:border-[#c9a66b] focus:outline-none transition-colors min-h-[100px]"
+                placeholder="응원의 한마디를 남겨주세요..."
+                maxLength={500}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-4 bg-[#c9a66b] hover:bg-[#d4b88a] text-[#1a1614] rounded-lg font-bold transition-all hover-lift disabled:opacity-50"
+            >
+              {loading ? "등록 중..." : "방명록 등록하기"}
+            </button>
+          </form>
+        </div>
+
+        {/* Message List */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {messages.map((entry) => (
+            <div key={entry.id} className="glass-card rounded-xl p-6 relative group hover:border-[#c9a66b]/40 transition-colors">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h4 className="font-bold text-[#f5ede6]">{entry.name}</h4>
+                  <p className="text-xs text-[#8b7355]">
+                    {new Date(entry.createdAt).toLocaleDateString()}
+                  </p>
+                </div>
+                {/* Delete Button Trigger */}
+                <button
+                  onClick={() => setDeleteTargetId(entry.id)}
+                  className="text-[#a89a8c] hover:text-red-400 transition-colors p-1"
+                  title="삭제"
+                >
+                  🗑️
+                </button>
+              </div>
+              <p className="text-[#d4c4b0] text-sm leading-relaxed whitespace-pre-wrap">
+                {entry.message}
+              </p>
+
+              {/* Delete Modal (Inline) */}
+              {deleteTargetId === entry.id && (
+                <div className="absolute inset-0 bg-[#1a1614]/95 backdrop-blur-sm rounded-xl flex items-center justify-center p-6 z-10 animate-fade-in">
+                  <div className="w-full space-y-3">
+                    <p className="text-sm text-[#f5ede6] text-center mb-2">비밀번호를 입력하세요</p>
+                    <input
+                      type="password"
+                      value={deletePassword}
+                      onChange={(e) => setDeletePassword(e.target.value)}
+                      className="w-full bg-[#2c2520] border border-[#3d352e] rounded-lg px-3 py-2 text-[#f5ede6] text-sm focus:border-[#c9a66b] outline-none"
+                      autoFocus
+                    />
+                    <div className="flex gap-2">
+                      <button
+                        onClick={handleDelete}
+                        className="flex-1 py-2 bg-red-900/50 hover:bg-red-900 text-red-200 text-xs rounded-lg transition-colors border border-red-900"
+                        disabled={loading}
+                      >
+                        삭제
+                      </button>
+                      <button
+                        onClick={() => {
+                          setDeleteTargetId(null);
+                          setDeletePassword("");
+                        }}
+                        className="flex-1 py-2 bg-[#2c2520] hover:bg-[#3d352e] text-[#a89a8c] text-xs rounded-lg transition-colors"
+                      >
+                        취소
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {messages.length === 0 && (
+            <div className="col-span-full text-center py-12 border border-dashed border-[#3d352e] rounded-xl">
+              <p className="text-[#8b7355]">첫 번째 메시지를 남겨주세요!</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Contact Section
 function ContactSection() {
   return (
@@ -785,6 +996,7 @@ export default function Home() {
       <ExperienceSection />
       <AwardsSection />
       <LecturesSection />
+      <GuestbookSection />
       <ContactSection />
       <Footer />
     </div>
