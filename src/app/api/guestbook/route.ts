@@ -1,29 +1,28 @@
 import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
 
-// In-memory storage (Resets on server restart)
-let guestbook: {
-    id: number;
-    name: string;
-    message: string;
-    password?: string; // Optional for backward compatibility, but required for new posts
-    createdAt: string;
-}[] = [
-        {
-            id: 1,
-            name: "QuantumAI LAB",
-            message: "방명록에 오신 것을 환영합니다! 비밀번호를 입력하면 삭제할 수 있습니다.",
-            password: "admin",
-            createdAt: new Date().toISOString(),
-        },
-    ];
+export const dynamic = "force-dynamic";
 
 // GET: Retrieve all messages
 export async function GET() {
-    // Return messages without passwords for security
-    const safeMessages = guestbook.map(({ password, ...msg }) => msg);
+    const { data: messages, error } = await supabase
+        .from("guestbook")
+        .select("id, name, message, created_at")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    // Frontend expects "createdAt"
+    const formattedMessages = messages ? messages.map((msg) => ({
+        ...msg,
+        createdAt: msg.created_at,
+    })) : [];
+
     return NextResponse.json({
-        total: safeMessages.length,
-        messages: safeMessages.sort((a, b) => b.id - a.id),
+        total: formattedMessages.length,
+        messages: formattedMessages,
     });
 }
 
@@ -40,15 +39,17 @@ export async function POST(request: Request) {
             );
         }
 
-        const newEntry = {
-            id: Date.now(), // Simple unique ID
-            name: name.slice(0, 50),
-            message: message.slice(0, 500),
-            password: password.slice(0, 20),
-            createdAt: new Date().toISOString(),
-        };
+        const { error } = await supabase.from("guestbook").insert([
+            {
+                name: name.slice(0, 50),
+                message: message.slice(0, 500),
+                password: password,
+            },
+        ]);
 
-        guestbook.push(newEntry);
+        if (error) {
+            return NextResponse.json({ error: error.message }, { status: 500 });
+        }
 
         return NextResponse.json({
             success: true,
@@ -75,24 +76,36 @@ export async function DELETE(request: Request) {
             );
         }
 
-        const index = guestbook.findIndex((entry) => entry.id === id);
+        // 1. Verify password first
+        const { data: entry, error: fetchError } = await supabase
+            .from("guestbook")
+            .select("password")
+            .eq("id", id)
+            .single();
 
-        if (index === -1) {
+        if (fetchError || !entry) {
             return NextResponse.json(
                 { error: "삭제할 메시지를 찾을 수 없습니다." },
                 { status: 404 }
             );
         }
 
-        if (guestbook[index].password !== password) {
+        if (entry.password !== password) {
             return NextResponse.json(
                 { error: "비밀번호가 일치하지 않습니다." },
                 { status: 403 }
             );
         }
 
-        // Delete the entry
-        guestbook.splice(index, 1);
+        // 2. Delete if verified
+        const { error: deleteError } = await supabase
+            .from("guestbook")
+            .delete()
+            .eq("id", id);
+
+        if (deleteError) {
+            return NextResponse.json({ error: deleteError.message }, { status: 500 });
+        }
 
         return NextResponse.json({
             success: true,
