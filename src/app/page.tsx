@@ -213,10 +213,15 @@ function ProjectsSection() {
         {/* 프로젝트 이미지를 추가할 수 있는 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="glass-card rounded-xl p-6 hover-lift cursor-pointer group">
-            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-              {/* 프로젝트 이미지를 추가하려면 아래 주석을 해제하세요 */}
-              {/* <Image src="/project1.jpg" alt="프로젝트 1" width={400} height={200} className="object-cover w-full h-full" /> */}
-              <span className="text-6xl group-hover:scale-110 transition-transform">🎨</span>
+            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden p-8">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/assets/project-art.png"
+                  alt="AI 아트 컬렉션"
+                  fill
+                  className="object-contain group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
             </div>
             <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
               AI 아트 컬렉션
@@ -227,8 +232,15 @@ function ProjectsSection() {
           </div>
 
           <div className="glass-card rounded-xl p-6 hover-lift cursor-pointer group">
-            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-              <span className="text-6xl group-hover:scale-110 transition-transform">🎬</span>
+            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden p-8">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/assets/project-video.png"
+                  alt="AI 영상 제작"
+                  fill
+                  className="object-contain group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
             </div>
             <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
               AI 영상 제작
@@ -239,8 +251,15 @@ function ProjectsSection() {
           </div>
 
           <div className="glass-card rounded-xl p-6 hover-lift cursor-pointer group">
-            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-              <span className="text-6xl group-hover:scale-110 transition-transform">🎵</span>
+            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden p-8">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/assets/project-sound.png"
+                  alt="사운드 디자인"
+                  fill
+                  className="object-contain group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
             </div>
             <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
               사운드 디자인
@@ -251,8 +270,15 @@ function ProjectsSection() {
           </div>
 
           <div className="glass-card rounded-xl p-6 hover-lift cursor-pointer group">
-            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-              <span className="text-6xl group-hover:scale-110 transition-transform">📚</span>
+            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden p-8">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/assets/project-edu.png"
+                  alt="AI 교육 콘텐츠"
+                  fill
+                  className="object-contain group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
             </div>
             <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
               AI 교육 콘텐츠
