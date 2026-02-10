@@ -1,7 +1,91 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+
+// 스크롤 애니메이션 훅 - 화면에 보이면 등장 효과
+function useScrollAnimation() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("scroll-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return ref;
+}
+
+// 스크롤 애니메이션 래퍼 컴포넌트
+function ScrollReveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const ref = useScrollAnimation();
+  return (
+    <div ref={ref} className={`scroll-hidden ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+// 클라이언트/협업 로고 섹션
+function ClientLogosSection() {
+  const clients = [
+    { name: "POSCO", label: "포스코 체인지업" },
+    { name: "BMW", label: "도이치 모터스" },
+    { name: "MBC", label: "MBC 아카데미" },
+    { name: "교보문고", label: "AI 임원교육" },
+    { name: "광운대학교", label: "정보과학교육원" },
+    { name: "수원대학교", label: "AI 미디어 특강" },
+    { name: "한국콘텐츠진흥원", label: "뉴콘텐츠아카데미" },
+    { name: "글로벌게임허브센터", label: "AI 마케팅 영상" },
+    { name: "박영사", label: "AI 활용 교과서 출판" },
+    { name: "코엑스", label: "Fatu 캠페인 전시" },
+  ];
+
+  return (
+    <section className="py-16 px-6 bg-[#1a1614] border-t border-b border-[#3d352e]/50">
+      <ScrollReveal>
+        <div className="max-w-6xl mx-auto">
+          <p className="text-center text-sm text-[#8b7355] mb-8 tracking-widest uppercase">
+            Trusted Partners & Clients
+          </p>
+          <div className="overflow-hidden">
+            <div className="logo-slide-track">
+              {/* 로고를 두 번 반복하여 무한 슬라이드 효과 */}
+              {[...clients, ...clients].map((client, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 flex flex-col items-center justify-center min-w-[140px] group cursor-default"
+                >
+                  <div className="w-20 h-20 rounded-xl bg-[#2c2520] border border-[#3d352e] flex items-center justify-center mb-2 group-hover:border-[#c9a66b]/50 group-hover:bg-[#2c2520]/80 transition-all duration-300">
+                    <span className="text-[#c9a66b] font-bold text-sm text-center leading-tight px-2">
+                      {client.name}
+                    </span>
+                  </div>
+                  <span className="text-[#8b7355] text-xs text-center whitespace-nowrap">
+                    {client.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+    </section>
+  );
+}
 
 // Navigation Component
 function Navigation() {
@@ -1017,13 +1101,14 @@ export default function Home() {
     <div className="min-h-screen bg-[#1a1614]">
       <Navigation />
       <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <AwardsSection />
-      <LecturesSection />
-      <GuestbookSection />
-      <ContactSection />
+      <ClientLogosSection />
+      <ScrollReveal><AboutSection /></ScrollReveal>
+      <ScrollReveal><ProjectsSection /></ScrollReveal>
+      <ScrollReveal><ExperienceSection /></ScrollReveal>
+      <ScrollReveal><AwardsSection /></ScrollReveal>
+      <ScrollReveal><LecturesSection /></ScrollReveal>
+      <ScrollReveal><GuestbookSection /></ScrollReveal>
+      <ScrollReveal><ContactSection /></ScrollReveal>
       <Footer />
     </div>
   );
