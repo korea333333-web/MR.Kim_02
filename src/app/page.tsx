@@ -71,7 +71,7 @@ function HeroSection() {
             <h1 className="text-5xl md:text-7xl font-bold mb-4">
               <span className="gradient-text">김승욱</span>
             </h1>
-            <p className="text-xl md:text-2xl text-[#a89a8c] mb-2">Seungwook Kim</p>
+            <p className="text-xl md:text-2xl text-[#a89a8c] mb-2">Seunguk Kim</p>
             <p className="text-lg md:text-xl text-[#8b7355] max-w-lg mb-8 leading-relaxed">
               AI 콘텐츠 제작, 사운드 디자인, 그리고 교육을 통해
               창의성과 기술의 경계를 넓혀가고 있습니다.
@@ -150,7 +150,7 @@ function AboutSection() {
                 />
               </div>
             </div>
-            <p className="text-[#c9a66b] text-sm">Seungwook Kim</p>
+            <p className="text-[#c9a66b] text-sm">Seunguk Kim</p>
             <p className="text-[#8b7355] text-sm mt-1">QuantumAI LAB 대표</p>
           </div>
 
@@ -1004,7 +1004,7 @@ function Footer() {
   return (
     <footer className="py-8 px-6 border-t border-[#3d352e] bg-[#1a1614]">
       <div className="max-w-4xl mx-auto text-center text-[#8b7355] text-sm">
-        <p>© 2026 Kim Seungwook. All rights reserved.</p>
+        <p>© 2026 Kim Seunguk. All rights reserved.</p>
         <p className="mt-2">AI Content Creator & Educator</p>
       </div>
     </footer>
