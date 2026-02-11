@@ -90,6 +90,7 @@ function ClientLogosSection() {
 // Navigation Component
 function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -99,35 +100,72 @@ function Navigation() {
 
   const navItems = [
     { href: "#home", label: "홈" },
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
-    { href: "#experience", label: "Experience" },
-    { href: "#awards", label: "Awards" },
-    { href: "#contact", label: "Contact" },
+    { href: "#about", label: "소개" },
+    { href: "#projects", label: "프로젝트" },
+    { href: "#experience", label: "경력" },
+    { href: "#awards", label: "수상" },
+    { href: "#contact", label: "연락처" },
   ];
 
   return (
-    <nav
-      className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-card py-3" : "py-6"
-        }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#home" className="text-xl font-bold gradient-text">
-          김승욱
-        </a>
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm text-[#a89a8c] hover:text-[#c9a66b] transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
+    <>
+      {/* 데스크톱 네비게이션 */}
+      <nav
+        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-card py-3" : "py-6"
+          }`}
+      >
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+          <a href="#home" className="text-xl font-bold gradient-text">
+            김승욱
+          </a>
+          <div className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm text-[#a89a8c] hover:text-[#c9a66b] transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* 모바일 햄버거 버튼 */}
+      <button
+        onClick={() => setMobileOpen(true)}
+        className="md:hidden fixed top-4 right-4 z-50 w-12 h-12 rounded-full glass-card flex items-center justify-center text-[#c9a66b] text-xl glow"
+        aria-label="메뉴 열기"
+      >
+        ☰
+      </button>
+
+      {/* 모바일 전체 화면 메뉴 */}
+      {mobileOpen && (
+        <div className="md:hidden fixed inset-0 z-[60] bg-[#1a1614]/98 backdrop-blur-xl flex flex-col items-center justify-center animate-fade-in">
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="absolute top-4 right-4 w-12 h-12 rounded-full glass-card flex items-center justify-center text-[#c9a66b] text-2xl"
+            aria-label="메뉴 닫기"
+          >
+            ✕
+          </button>
+          <div className="flex flex-col items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-2xl text-[#a89a8c] hover:text-[#c9a66b] transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -938,7 +976,7 @@ function GuestbookSection() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full bg-[#1a1614]/50 border border-[#3d352e] rounded-lg px-4 py-3 text-[#f5ede6] focus:border-[#c9a66b] focus:outline-none transition-colors"
-                  placeholder="Create your name"
+                  placeholder="이름을 입력해주세요"
                   maxLength={50}
                   required
                 />
