@@ -890,8 +890,9 @@ function GuestbookSection() {
   const fetchMessages = async () => {
     try {
       const res = await fetch("/api/guestbook");
+      if (!res.ok) return;
       const data = await res.json();
-      setMessages(data.messages);
+      setMessages(data.messages || []);
     } catch (error) {
       console.error("Failed to fetch messages:", error);
     }
