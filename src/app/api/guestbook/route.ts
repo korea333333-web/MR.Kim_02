@@ -15,7 +15,7 @@ export async function GET() {
     }
 
     // Frontend expects "createdAt"
-    const formattedMessages = messages ? messages.map((msg) => ({
+    const formattedMessages = messages ? messages.map((msg: { id: number; name: string; message: string; created_at: string }) => ({
         ...msg,
         createdAt: msg.created_at,
     })) : [];
