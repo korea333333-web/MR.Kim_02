@@ -433,7 +433,7 @@ function ExperienceSection() {
     },
     {
       title: "광운대학교 정보과학교육원",
-      role: "시간강사",
+      role: "",
       period: "2015.03 ~",
       current: true,
     },
@@ -461,7 +461,7 @@ function ExperienceSection() {
                 <h3 className="text-xl font-semibold text-[#f5ede6]">
                   {exp.title}
                 </h3>
-                <p className="text-[#a89a8c]">{exp.role}</p>
+                {exp.role && <p className="text-[#a89a8c]">{exp.role}</p>}
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-[#8b7355]">{exp.period}</span>
