@@ -197,8 +197,8 @@ function HeroSection() {
             </h1>
             <p className="text-xl md:text-2xl text-[#a89a8c] mb-2">Seunguk Kim</p>
             <p className="text-lg md:text-xl text-[#8b7355] max-w-lg mb-8 leading-relaxed">
-              AI 콘텐츠 제작, 사운드 디자인, 그리고 교육을 통해
-              창의성과 기술의 경계를 넓혀가고 있습니다.
+              AI 기반 프로그램 개발, 회사 AX 전환 교육, 콘텐츠 제작을 통해
+              창의성과 실무 자동화를 연결하고 있습니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -219,11 +219,11 @@ function HeroSection() {
             <div className="mt-12 flex gap-12">
               <div>
                 <div className="text-3xl font-bold text-[#c9a66b]">Current</div>
-                <div className="text-sm text-[#8b7355]">QuantumAI LAB 대표</div>
+                <div className="text-sm text-[#8b7355]">QuantumAI LAB 대표 · AX 교육</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-[#c9a66b]">20+ Years</div>
-                <div className="text-sm text-[#8b7355]">Creative Experience</div>
+                <div className="text-sm text-[#8b7355]">Creative & AI Program Experience</div>
               </div>
             </div>
           </div>
