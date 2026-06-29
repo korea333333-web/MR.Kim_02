@@ -412,6 +412,24 @@ function DigitalProductsSection() {
       featured: true,
     },
     {
+      title: "달새김",
+      subtitle: "감성 기록형 웹 서비스",
+      description:
+        "소중한 날과 기억을 달에 새기듯 기록하는 감성형 웹 서비스입니다. 날짜, 메시지, 분위기를 담아 개인적인 순간을 보존합니다.",
+      href: "https://claude-plan-1.vercel.app/",
+      tags: ["Web App", "Personal Archive", "In Progress"],
+      featured: false,
+    },
+    {
+      title: "커머스 운영 자동화 도구",
+      subtitle: "위탁판매 주문 관리 시스템",
+      description:
+        "위탁판매 주문 확인과 운영 흐름을 관리하기 위한 내부 업무형 웹 도구입니다. 커머스 운영 자동화 실험으로 정리했습니다.",
+      href: "https://coupang-vert.vercel.app/",
+      tags: ["Commerce Ops", "Automation", "Dashboard"],
+      featured: false,
+    },
+    {
       title: "AI 인사이트 브리프",
       subtitle: "AI 뉴스 분석 브리핑 블로그",
       description:
@@ -436,24 +454,6 @@ function DigitalProductsSection() {
         "프로필·증명사진 제작 흐름을 웹에서 간편하게 다룰 수 있도록 구성한 실용형 AI 사진 서비스입니다.",
       href: "https://id-picture-theta.vercel.app/",
       tags: ["AI Photo", "Utility", "Next.js"],
-      featured: false,
-    },
-    {
-      title: "달새김",
-      subtitle: "감성 기록형 웹 서비스",
-      description:
-        "소중한 날과 기억을 달에 새기듯 기록하는 감성형 웹 서비스입니다. 날짜, 메시지, 분위기를 담아 개인적인 순간을 보존합니다.",
-      href: "https://claude-plan-1.vercel.app/",
-      tags: ["Web App", "Personal Archive", "In Progress"],
-      featured: false,
-    },
-    {
-      title: "커머스 운영 자동화 도구",
-      subtitle: "위탁판매 주문 관리 시스템",
-      description:
-        "위탁판매 주문 확인과 운영 흐름을 관리하기 위한 내부 업무형 웹 도구입니다. 커머스 운영 자동화 실험으로 정리했습니다.",
-      href: "https://coupang-vert.vercel.app/",
-      tags: ["Commerce Ops", "Automation", "Dashboard"],
       featured: false,
     },
   ];
