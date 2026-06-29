@@ -442,8 +442,8 @@ function DigitalProductsSection() {
       title: "달새김",
       subtitle: "감성 기록형 웹 서비스",
       description:
-        "날짜와 기억, 메시지를 감성적으로 기록하는 방향의 웹 서비스 프로젝트입니다. 공개 URL 확인 후 링크를 연결할 예정입니다.",
-      href: null,
+        "소중한 날과 기억을 달에 새기듯 기록하는 감성형 웹 서비스입니다. 날짜, 메시지, 분위기를 담아 개인적인 순간을 보존합니다.",
+      href: "https://claude-plan-1.vercel.app/",
       tags: ["Web App", "Personal Archive", "In Progress"],
       featured: false,
     },
