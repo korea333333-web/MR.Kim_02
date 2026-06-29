@@ -104,6 +104,7 @@ function Navigation() {
     { href: "#projects", label: "프로젝트" },
     { href: "#experience", label: "경력" },
     { href: "#awards", label: "수상" },
+    { href: "#research", label: "논문" },
     { href: "#contact", label: "연락처" },
   ];
 
@@ -295,7 +296,7 @@ function AboutSection() {
             </p>
 
             {/* Info cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
               <div className="bg-[#1a1614]/50 rounded-xl p-4 border border-[#3d352e]">
                 <div className="text-sm text-[#8b7355] mb-1">Location</div>
                 <div className="text-[#f5ede6]">Seoul, Korea</div>
@@ -310,6 +311,16 @@ function AboutSection() {
                   공주대 게임디자인 박사
                   <br />
                   상명대 컴퓨터음악 석사
+                  <br />
+                  전주대 음악학 학사
+                </div>
+              </div>
+              <div className="bg-[#1a1614]/50 rounded-xl p-4 border border-[#3d352e]">
+                <div className="text-sm text-[#8b7355] mb-1">Certification</div>
+                <div className="text-[#f5ede6] text-sm">
+                  ICA Color Technology 201
+                  <br />
+                  ICA DaVinci Resolve 201
                 </div>
               </div>
             </div>
@@ -443,6 +454,58 @@ function ExperienceSection() {
       period: "2015 ~ 2018",
       current: false,
     },
+    {
+      title: "서울호서직업전문학교",
+      role: "외래교수",
+      period: "2007.03 ~ 2013.06",
+      current: false,
+    },
+    {
+      title: "Play-Photo",
+      role: "대표",
+      period: "2009 ~ 2015",
+      current: false,
+    },
+    {
+      title: "Studio A-Min",
+      role: "대표",
+      period: "2005.08 ~ 2010",
+      current: false,
+    },
+    {
+      title: "전주대학교",
+      role: "기간강사",
+      period: "2004.08 ~ 2006.02",
+      current: false,
+    },
+  ];
+
+  const highlights = [
+    {
+      year: "2014 ~ 2021",
+      title: "EBS <문화유산 코리아>",
+      description: "음악, 효과, 믹싱",
+    },
+    {
+      year: "2020 ~ 2022",
+      title: "JOYCITY 게임 사운드",
+      description: "크로스파이어 워존 트레일러, BLESS MOBILE, 프리스타일 풋볼2, 건쉽배틀 클립토 컨플릭트",
+    },
+    {
+      year: "2023",
+      title: "ZEPETO <POP WAVE>",
+      description: "리듬게임 음악, 효과, 믹싱",
+    },
+    {
+      year: "2023",
+      title: "와이낫미디어 웹드라마",
+      description: "지질한 이야기, 그래 서른 음악",
+    },
+    {
+      year: "2004 ~ 2007",
+      title: "음반·뮤지컬 작편곡",
+      description: "아름다운 세상, 프린스 쿨루의 모험",
+    },
   ];
 
   return (
@@ -474,6 +537,23 @@ function ExperienceSection() {
             </div>
           ))}
         </div>
+
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold mb-6 text-[#f5ede6]">주요 제작 경력</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {highlights.map((item, index) => (
+              <div key={index} className="glass-card rounded-xl p-5 hover-lift">
+                <p className="text-[#c9a66b] text-sm mb-2">{item.year}</p>
+                <h4 className="text-lg font-semibold text-[#f5ede6] mb-2">
+                  {item.title}
+                </h4>
+                <p className="text-[#a89a8c] text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -494,6 +574,18 @@ function AwardsSection() {
       description: "POSCO 체인지업을 위한 AI 기술 기반 광고 영상입니다. 생성형 AI를 활용하여 기업 브랜딩 영상을 제작했습니다.",
       technologies: ["AI Video Generation", "Runway", "After Effects"],
       tags: ["AI Video", "Commercial", "Corporate"],
+    },
+    {
+      id: "mom-star",
+      title: "엄마가 보낸 별",
+      subtitle: "AI 제작 영화",
+      image: null,
+      videoUrl: null,
+      embedUrl: null,
+      description: "AI 제작 영화로 2024 서울 국제 AI 영화제 초청작에 선정되었으며 우수상을 수상했습니다.",
+      technologies: ["AI Film", "Generative AI", "Video Production"],
+      tags: ["AI Film", "Award", "Festival"],
+      award: "🏆 2024 서울 국제 AI 영화제 우수상",
     },
     {
       id: "bmw",
@@ -540,6 +632,17 @@ function AwardsSection() {
       tags: ["AI Video", "Commercial"],
     },
     {
+      id: "seo-hyukshin",
+      title: "서혁신 - 끝의 끝",
+      subtitle: "보이스 오브 코리아 출신 가수 뮤직비디오",
+      image: null,
+      videoUrl: null,
+      embedUrl: null,
+      description: "보이스 오브 코리아 출신 가수 서혁신의 곡 '끝의 끝' 뮤직비디오 제작 프로젝트입니다.",
+      technologies: ["AI Video Generation", "Music Video", "Post Production"],
+      tags: ["Music Video", "AI Video"],
+    },
+    {
       id: "last-human-memory",
       title: "The Last Human Memory",
       subtitle: "최후의 인간: 기억",
@@ -577,7 +680,11 @@ function AwardsSection() {
   ];
 
   const awards = [
-    { title: "서울 국제 AI 영화제 우수상", org: "AI 제작 영화 부문" },
+    { title: "2026 AI INNOVATION CHALLENGE 특별상", org: "AI 콘텐츠 제작 부문, 아모레퍼시픽" },
+    { title: "고혼진 AI영상광고 공모전 우수상", org: "바이럴미디어 부문" },
+    { title: "서울 국제 AI 영화제 우수상", org: "AI 제작 영화 <엄마가 보낸 별>" },
+    { title: "탕산 국제초대전 Special Prize", org: "The Eye of Abyss, 한국디자인학회" },
+    { title: "제3회 국제디지털아트초대전 우수상", org: "The Last Human Memory, 한국게임학회" },
   ];
 
   return (
@@ -663,7 +770,13 @@ function AwardsSection() {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
-                ) : null}
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#2c2520] to-[#1a1614] p-6">
+                    <span className="text-[#c9a66b] text-center font-semibold leading-relaxed">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
               </div>
               <h3 className="text-xl font-bold text-[#f5ede6] mb-2">
                 {project.title}
@@ -749,7 +862,13 @@ function AwardsSection() {
                         className="rounded-lg"
                       />
                     </div>
-                  ) : null}
+                  ) : (
+                    <div className="min-h-[300px] w-full flex items-center justify-center bg-gradient-to-br from-[#2c2520] to-[#1a1614] p-8">
+                      <span className="text-2xl text-[#c9a66b] text-center font-semibold">
+                        {project.title}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Description */}
@@ -826,19 +945,120 @@ function AwardsSection() {
 function LecturesSection() {
   const lectures = [
     {
+      period: "2026.05.14",
+      title: "AI시대를 살아가는 법: 무엇이 오고 있고 무엇을 잃을 것인가?",
+      org: "부천대학교 반려동물과",
+    },
+    {
+      period: "2026.04.26",
+      title: "쌍용C&E 관리직 생성형 AI 업무 활용",
+      org: "쌍용C&E 종합기술훈련원",
+    },
+    {
+      period: "2025.11",
+      title: "2025 디지털 리터러시: 생성형 AI를 통해 콘텐츠 만들기",
+      org: "한국항공대학교",
+    },
+    {
+      period: "2025.09 ~ 2025.12",
+      title: "AI로 나를 업그레이드하라: 인공지능 영상 제작 실습",
+      org: "광명시 평생학습원",
+    },
+    {
+      period: "2025.10",
+      title: "AI가 만드는 미디어: 기술, 사례, 그리고 창작자의 미래",
+      org: "수원대학교",
+    },
+    {
+      period: "2025",
       title: "뉴콘텐츠아카데미 장기과정 2기 - 팀 프로젝트 AI 활용 코칭",
       org: "한국콘텐츠진흥원",
     },
     {
+      period: "2025",
       title: "생성형 AI 마케팅 영상 제작 프롬프트 디자인 노하우",
       org: "글로벌게임허브센터",
     },
     {
-      title: "AI가 만드는 미디어: 기술, 사례, 그리고 창작자의 미래",
-      org: "수원대학교",
+      period: "2025",
+      title: "웹툰 제작 회사에서의 AI 트렌드 및 제작 활용",
+      org: "키다리스튜디오",
     },
-    { title: "인공지능의 업무활용 AI 임원교육", org: "교보문고" },
-    { title: "생성형 AI를 활용한 영상콘텐츠 제작", org: "MBC방송 아카데미" },
+    {
+      period: "2025",
+      title: "AI 활용 업무 효율화 교육",
+      org: "군산상공회의소",
+    },
+    {
+      period: "2025",
+      title: "인공지능의 업무활용 AI 임원교육",
+      org: "교보문고",
+    },
+    {
+      period: "2025.03 ~ 2025.05",
+      title: "AI로 나를 업그레이드하라: 평범한 일상을 초능력으로 바꾸는 방법",
+      org: "광명시 평생학습원",
+    },
+    {
+      period: "2025",
+      title: "AI 콘텐츠 제작 마법: 상상력을 현실로",
+      org: "성남여성인력개발센터",
+    },
+    {
+      period: "2025",
+      title: "산학프로젝트 멘토링: 생성형 게임AI 개발",
+      org: "인제대학교",
+    },
+    {
+      period: "2025",
+      title: "뉴콘텐츠아카데미 장기과정 1기 - 인공지능을 활용한 영상 제작",
+      org: "한국콘텐츠진흥원",
+    },
+    {
+      period: "2024",
+      title: "슈퍼스타 시즌10 저자강의: 나도 AI로 다시 시작!",
+      org: "오늘과 내일의 학교",
+    },
+    {
+      period: "2024",
+      title: "게임 컨셉아트를 위한 스테이블 디퓨전의 활용 기초",
+      org: "인제대학교 게임학과",
+    },
+    {
+      period: "2024",
+      title: "이미지 생성형 AI를 활용한 콘텐츠 제작",
+      org: "호서대학교",
+    },
+    {
+      period: "2024",
+      title: "창의성과 생산성의 융합: 생성형 AI로 업무 혁신하기",
+      org: "Hanumul",
+    },
+    {
+      period: "2024",
+      title: "생성형 AI를 활용한 게임제작 활용",
+      org: "세한대학교",
+    },
+    {
+      period: "2024",
+      title: "이미지 생성형 AI를 활용한 게임제작 기초",
+      org: "건양대학교 창의융합캠퍼스",
+    },
+    {
+      period: "2024",
+      title: "생성형 AI를 활용한 영상콘텐츠 제작",
+      org: "MBC방송 아카데미",
+    },
+    {
+      period: "2024",
+      title: "AI 시대에서 콘텐츠의 미래 그리고 윤리",
+      org: "인제대학교",
+    },
+    {
+      period: "2021",
+      title: "웹소설, 독립출판, 프로듀싱을 한 번에 배워보자",
+      org: "경기콘텐츠진흥원 판교클러스터센터",
+    },
   ];
 
   return (
@@ -850,27 +1070,66 @@ function LecturesSection() {
         <div className="space-y-4">
           {lectures.map((lecture, index) => (
             <div key={index} className="glass-card rounded-xl p-6 hover-lift">
+              <p className="text-[#c9a66b] text-sm mb-2">{lecture.period}</p>
               <h3 className="text-lg font-medium text-[#f5ede6] mb-2">
                 {lecture.title}
               </h3>
-              <p className="text-[#c9a66b] text-sm">{lecture.org}</p>
+              <p className="text-[#a89a8c] text-sm">{lecture.org}</p>
             </div>
           ))}
         </div>
 
-        {/* Publication */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold mb-6 text-[#f5ede6]">출판</h3>
-          <div className="glass-card rounded-xl p-6 hover-lift glow">
-            <h4 className="text-xl font-semibold text-[#f5ede6] mb-2">
-              나만알고싶은 AI 활용 교과서: 시니어 편
-            </h4>
-            <p className="text-[#c9a66b] mb-3">출판: 박영사</p>
-            <p className="text-[#a89a8c]">
-              시니어를 위한 AI 활용 가이드북. 누구나 쉽게 AI 기술을 활용할 수
-              있도록 친절하게 안내합니다.
-            </p>
-          </div>
+      </div>
+    </section>
+  );
+}
+
+// Research Section
+function ResearchSection() {
+  const papers = [
+    {
+      period: "2026.02",
+      title: "RPG 장르 게임 직업별 음성 커스터마이징을 위한 자동 레이블링 방법에 관한 연구",
+      org: "국립공주대학교 대학원 게임디자인학과 박사학위논문",
+    },
+    {
+      period: "2024.05",
+      title: "Development of an evaluation tool model for the effective measurement of cyber motion sickness in immersive virtual reality",
+      org: "International Journal of Advanced Culture Technology, Vol.12 No.2, pp.345-352",
+    },
+    {
+      period: "2023.11",
+      title: "Analysis of School Safety Education Utilization with Educational Game Elements",
+      org: "International Journal of Advanced Culture Technology, Vol.11 No.4, pp.81-87",
+    },
+  ];
+
+  return (
+    <section id="research" className="py-24 px-6 bg-[#1a1614]">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 gradient-text">
+          논문 및 출간
+        </h2>
+        <div className="space-y-4 mb-16">
+          {papers.map((paper, index) => (
+            <div key={index} className="glass-card rounded-xl p-6 hover-lift">
+              <p className="text-[#c9a66b] text-sm mb-2">{paper.period}</p>
+              <h3 className="text-lg font-semibold text-[#f5ede6] mb-2">
+                {paper.title}
+              </h3>
+              <p className="text-[#a89a8c] text-sm">{paper.org}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="glass-card rounded-xl p-6 hover-lift glow">
+          <p className="text-[#c9a66b] text-sm mb-2">2024.12</p>
+          <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
+            나만알고싶은 AI 활용 교과서: 시니어 편
+          </h3>
+          <p className="text-[#a89a8c]">
+            박영사 출판. 시니어를 위한 AI 활용 가이드북으로, 누구나 쉽게 AI 기술을 활용할 수 있도록 안내합니다.
+          </p>
         </div>
       </div>
     </section>
@@ -1146,6 +1405,7 @@ export default function Home() {
       <ScrollReveal><ExperienceSection /></ScrollReveal>
       <ScrollReveal><AwardsSection /></ScrollReveal>
       <ScrollReveal><LecturesSection /></ScrollReveal>
+      <ScrollReveal><ResearchSection /></ScrollReveal>
       <ScrollReveal><GuestbookSection /></ScrollReveal>
       <ScrollReveal><ContactSection /></ScrollReveal>
       <Footer />
