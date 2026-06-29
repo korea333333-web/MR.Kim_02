@@ -336,24 +336,24 @@ function AboutSection() {
 function ProjectsSection() {
   const fields = [
     {
-      title: "AI 이미지 제작",
-      description: "광고, 앨범 커버, 콘셉트 이미지 제작",
-      image: "/assets/project-art.png",
+      title: "기업 AX 전환 교육",
+      description: "조직의 업무 프로세스에 AI를 도입하는 실무형 기업 강의",
+      image: "/assets/project-ax.svg",
     },
     {
-      title: "AI 영상 제작",
-      description: "쇼츠, 홍보 영상, 뮤직비디오형 콘텐츠 제작",
+      title: "AI 프로그램 개발",
+      description: "업무 자동화, 콘텐츠 제작, 커머스 운영을 돕는 웹 도구 개발",
+      image: "/assets/project-edu.png",
+    },
+    {
+      title: "AI 콘텐츠 제작",
+      description: "광고 이미지, 쇼츠, 홍보 영상, 콘셉트 콘텐츠 제작",
       image: "/assets/project-video.png",
     },
     {
       title: "AI 음악·사운드",
       description: "웨딩송, 배경음악, 사운드 디자인 제작",
       image: "/assets/project-sound.png",
-    },
-    {
-      title: "AI 활용 교육",
-      description: "기업, 학교, 단체 대상 AI 실무 강의",
-      image: "/assets/project-edu.png",
     },
   ];
 
@@ -364,7 +364,7 @@ function ProjectsSection() {
           제작 및 강의 가능 분야
         </h2>
         <p className="text-[#8b7355] mb-8">
-          AI 기술을 활용해 제작하거나 강의할 수 있는 분야입니다.
+          기업 AX 전환 교육부터 AI 프로그램 개발과 콘텐츠 제작까지 연결합니다.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

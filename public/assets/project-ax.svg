@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="64" fill="#17120F"/>
+  <rect x="48" y="62" width="416" height="292" rx="28" fill="#231B16" stroke="#5D4033" stroke-width="3"/>
+  <rect x="80" y="96" width="352" height="214" rx="18" fill="#100D0C"/>
+  <path d="M112 274C147 226 183 248 216 203C242 168 276 166 306 196C337 226 371 204 400 154" stroke="#C9A66B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M114 274L157 238L197 244L242 184L292 204L338 203L400 154" stroke="#FF5A78" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="158" cy="238" r="10" fill="#E8C47E"/>
+  <circle cx="242" cy="184" r="10" fill="#E8C47E"/>
+  <circle cx="338" cy="203" r="10" fill="#E8C47E"/>
+  <circle cx="400" cy="154" r="10" fill="#FF5A78"/>
+  <g filter="url(#glow)">
+    <circle cx="256" cy="202" r="50" fill="#C9A66B" fill-opacity="0.18"/>
+    <circle cx="256" cy="202" r="25" fill="#E8C47E"/>
+  </g>
+  <path d="M244 202C244 195 249 190 256 190C263 190 268 195 268 202C268 209 263 214 256 214C249 214 244 209 244 202Z" fill="#17120F"/>
+  <path d="M256 166V142M256 262V238M292 202H316M196 202H220M282 176L300 158M212 246L230 228M282 228L300 246M212 158L230 176" stroke="#E8C47E" stroke-width="7" stroke-linecap="round"/>
+  <rect x="86" y="374" width="74" height="54" rx="16" fill="#2D231D" stroke="#6E4C3A" stroke-width="3"/>
+  <rect x="188" y="374" width="136" height="54" rx="16" fill="#2D231D" stroke="#6E4C3A" stroke-width="3"/>
+  <rect x="352" y="374" width="74" height="54" rx="16" fill="#2D231D" stroke="#6E4C3A" stroke-width="3"/>
+  <path d="M122 374V338H256V374M256 338H389V374" stroke="#C9A66B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M106 402H142M213 402H299M372 402H406" stroke="#E8C47E" stroke-width="8" stroke-linecap="round"/>
+  <defs>
+    <filter id="glow" x="171" y="117" width="170" height="170" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feGaussianBlur in="BackgroundImageFix" stdDeviation="12"/>
+      <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_1" result="shape"/>
+      <feGaussianBlur stdDeviation="14" result="effect2_foregroundBlur_1_1"/>
+    </filter>
+  </defs>
+</svg>
