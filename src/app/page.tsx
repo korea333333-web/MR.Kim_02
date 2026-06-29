@@ -102,6 +102,7 @@ function Navigation() {
     { href: "#home", label: "홈" },
     { href: "#about", label: "소개" },
     { href: "#projects", label: "프로젝트" },
+    { href: "#products", label: "서비스" },
     { href: "#experience", label: "경력" },
     { href: "#awards", label: "수상" },
     { href: "#research", label: "논문" },
@@ -420,6 +421,138 @@ function ProjectsSection() {
               기업 및 대학 AI 활용 교육
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// AI & Web Products Section
+function DigitalProductsSection() {
+  const products = [
+    {
+      title: "웨딩송 AI 청첩장",
+      subtitle: "AI 음악이 담긴 프리미엄 모바일 청첩장",
+      description:
+        "신랑신부의 이야기와 분위기에 맞춘 AI 웨딩송, 모바일 초대장, 공유 링크까지 연결한 실사용형 웹 서비스입니다.",
+      href: "https://wedding-card-jet.vercel.app/",
+      tags: ["AI Music", "Mobile Invitation", "Next.js"],
+      featured: true,
+    },
+    {
+      title: "AI 인사이트 브리프",
+      subtitle: "AI 뉴스 분석 브리핑 블로그",
+      description:
+        "전세계 AI 뉴스와 중국 AI 동향을 큐레이션하고 분석하는 브리핑 블로그입니다. AI 교육자이자 콘텐츠 제작자로서의 관점을 기록합니다.",
+      href: "https://korea333333-web.github.io/",
+      tags: ["AI Briefing", "Research", "Blog"],
+      featured: true,
+    },
+    {
+      title: "Product Page Image Prompt Studio",
+      subtitle: "상품 상세페이지 이미지 프롬프트 도구",
+      description:
+        "커머스 상품 이미지를 기획하고 상세페이지용 이미지 프롬프트를 설계하는 AI 워크플로우 도구입니다.",
+      href: "https://product-page-image-studio.vercel.app/",
+      tags: ["Commerce AI", "Prompt Studio", "Image Workflow"],
+      featured: true,
+    },
+    {
+      title: "증명사진 플러스",
+      subtitle: "실용형 AI 사진 서비스",
+      description:
+        "프로필·증명사진 제작 흐름을 웹에서 간편하게 다룰 수 있도록 구성한 실용형 AI 사진 서비스입니다.",
+      href: "https://id-picture-theta.vercel.app/",
+      tags: ["AI Photo", "Utility", "Next.js"],
+      featured: false,
+    },
+    {
+      title: "달새김",
+      subtitle: "감성 기록형 웹 서비스",
+      description:
+        "날짜와 기억, 메시지를 감성적으로 기록하는 방향의 웹 서비스 프로젝트입니다. 공개 URL 확인 후 링크를 연결할 예정입니다.",
+      href: null,
+      tags: ["Web App", "Personal Archive", "In Progress"],
+      featured: false,
+    },
+    {
+      title: "커머스 운영 자동화 도구",
+      subtitle: "위탁판매 주문 관리 시스템",
+      description:
+        "위탁판매 주문 확인과 운영 흐름을 관리하기 위한 내부 업무형 웹 도구입니다. 커머스 운영 자동화 실험으로 정리했습니다.",
+      href: "https://coupang-vert.vercel.app/",
+      tags: ["Commerce Ops", "Automation", "Dashboard"],
+      featured: false,
+    },
+  ];
+
+  return (
+    <section id="products" className="py-24 px-6 sepia-bg">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-12">
+          <p className="text-[#c9a66b] text-sm tracking-widest uppercase mb-3">
+            AI & Web Products
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+            AI 서비스와 웹 프로덕트
+          </h2>
+          <p className="text-[#8b7355] max-w-2xl leading-relaxed">
+            AI 콘텐츠 제작 경험을 실제로 사용할 수 있는 웹 서비스와 업무 도구로 확장한 프로젝트들입니다.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {products.map((product) => (
+            <div
+              key={product.title}
+              className={`glass-card rounded-xl p-6 hover-lift flex flex-col ${product.featured ? "md:min-h-[300px]" : ""}`}
+            >
+              <div className="flex items-start justify-between gap-4 mb-5">
+                <div>
+                  <p className="text-[#c9a66b] text-sm mb-2">{product.subtitle}</p>
+                  <h3 className="text-2xl font-bold text-[#f5ede6] leading-tight">
+                    {product.title}
+                  </h3>
+                </div>
+                {product.featured && (
+                  <span className="shrink-0 px-3 py-1 bg-[#c9a66b]/20 text-[#c9a66b] text-xs rounded-full">
+                    Featured
+                  </span>
+                )}
+              </div>
+
+              <p className="text-[#d4c4b0] leading-relaxed mb-6 flex-1">
+                {product.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {product.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-1 bg-[#2c2520] text-[#a89a8c] text-xs rounded-lg border border-[#3d352e]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {product.href ? (
+                <a
+                  href={product.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-2 px-5 py-3 bg-[#c9a66b] hover:bg-[#d4b88a] text-[#1a1614] rounded-full font-medium transition-all"
+                >
+                  <span>↗</span>
+                  사이트 보기
+                </a>
+              ) : (
+                <span className="inline-flex w-fit items-center px-5 py-3 glass-card rounded-full text-[#8b7355] text-sm">
+                  URL 준비 중
+                </span>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -1402,6 +1535,7 @@ export default function Home() {
       <ClientLogosSection />
       <ScrollReveal><AboutSection /></ScrollReveal>
       <ScrollReveal><ProjectsSection /></ScrollReveal>
+      <ScrollReveal><DigitalProductsSection /></ScrollReveal>
       <ScrollReveal><ExperienceSection /></ScrollReveal>
       <ScrollReveal><AwardsSection /></ScrollReveal>
       <ScrollReveal><LecturesSection /></ScrollReveal>
