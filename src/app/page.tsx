@@ -589,7 +589,7 @@ function ExperienceSection() {
     {
       year: "2014 ~ 2021",
       title: "EBS <문화유산 코리아>",
-      description: "음악, 효과, 믹싱",
+      description: "음악·효과·믹싱 제작",
     },
     {
       year: "2020 ~ 2022",
@@ -599,7 +599,7 @@ function ExperienceSection() {
     {
       year: "2023",
       title: "ZEPETO <POP WAVE>",
-      description: "리듬게임 음악, 효과, 믹싱",
+      description: "리듬게임 음악·효과·믹싱 제작",
     },
     {
       year: "2023",
