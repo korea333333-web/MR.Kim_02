@@ -119,23 +119,3 @@ html {
   transform: translateY(0);
 }
 
-/* ===== 클라이언트 로고 무한 슬라이드 ===== */
-@keyframes scrollLogos {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.logo-slide-track {
-  display: flex;
-  gap: 4rem;
-  animation: scrollLogos 20s linear infinite;
-  width: max-content;
-}
-
-.logo-slide-track:hover {
-  animation-play-state: paused;
-}

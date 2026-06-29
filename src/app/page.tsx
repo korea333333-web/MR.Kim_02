@@ -39,47 +39,81 @@ function ScrollReveal({ children, className = "" }: { children: React.ReactNode;
   );
 }
 
-// 클라이언트/협업 로고 섹션
+// AI 강의 및 교육 협력 섹션
 function ClientLogosSection() {
-  const clients = [
-    { name: "POSCO", label: "포스코 체인지업" },
-    { name: "BMW", label: "도이치 모터스" },
-    { name: "MBC", label: "MBC 아카데미" },
-    { name: "교보문고", label: "AI 임원교육" },
-    { name: "광운대학교", label: "정보과학교육원" },
-    { name: "수원대학교", label: "AI 미디어 특강" },
-    { name: "한국콘텐츠진흥원", label: "뉴콘텐츠아카데미" },
-    { name: "글로벌게임허브센터", label: "AI 마케팅 영상" },
-    { name: "박영사", label: "AI 활용 교과서 출판" },
-    { name: "코엑스", label: "Fatu 캠페인 전시" },
+  const lectureFields = [
+    {
+      title: "기업 AX 전환 교육",
+      description: "AI 도구를 활용한 업무 자동화, 조직 생산성 향상, 임원·실무자 대상 교육",
+    },
+    {
+      title: "대학·기관 AI 특강",
+      description: "광운대학교, 수원대학교 등에서 AI 미디어와 콘텐츠 제작 강의",
+    },
+    {
+      title: "AI 콘텐츠 제작 교육",
+      description: "이미지, 영상, 음악 생성형 AI를 활용한 실습 중심 교육",
+    },
+    {
+      title: "AI 교재·브리핑·연구 활동",
+      description: "AI 활용 교재 출판, AI 인사이트 브리프 운영, 최신 AI 동향 분석",
+    },
+  ];
+
+  const partners = [
+    "교보문고",
+    "광운대학교",
+    "수원대학교",
+    "한국콘텐츠진흥원",
+    "글로벌게임허브센터",
+    "박영사",
+    "MBC 아카데미",
+    "POSCO",
+    "BMW",
+    "코엑스",
   ];
 
   return (
-    <section className="py-16 px-6 bg-[#1a1614] border-t border-b border-[#3d352e]/50">
+    <section className="py-20 px-6 bg-[#1a1614] border-t border-b border-[#3d352e]/50">
       <ScrollReveal>
         <div className="max-w-6xl mx-auto">
-          <p className="text-center text-sm text-[#8b7355] mb-8 tracking-widest uppercase">
-            Trusted Partners & Clients
-          </p>
-          <div className="overflow-hidden">
-            <div className="logo-slide-track">
-              {/* 로고를 두 번 반복하여 무한 슬라이드 효과 */}
-              {[...clients, ...clients].map((client, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 flex flex-col items-center justify-center min-w-[140px] group cursor-default"
-                >
-                  <div className="w-20 h-20 rounded-xl bg-[#2c2520] border border-[#3d352e] flex items-center justify-center mb-2 group-hover:border-[#c9a66b]/50 group-hover:bg-[#2c2520]/80 transition-all duration-300">
-                    <span className="text-[#c9a66b] font-bold text-sm text-center leading-tight px-2">
-                      {client.name}
-                    </span>
-                  </div>
-                  <span className="text-[#8b7355] text-xs text-center whitespace-nowrap">
-                    {client.label}
-                  </span>
-                </div>
-              ))}
-            </div>
+          <div className="mb-10">
+            <p className="text-[#c9a66b] text-sm tracking-widest uppercase mb-3">
+              AI Education & AX Transformation
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+              AI·AX 전환 강의 및 교육 협력
+            </h2>
+            <p className="text-[#8b7355] max-w-3xl leading-relaxed">
+              기업·대학·기관을 대상으로 인공지능 실무 활용, AX 전환, AI 콘텐츠 제작 교육을 진행했습니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {lectureFields.map((field) => (
+              <div
+                key={field.title}
+                className="glass-card rounded-xl p-5 border border-[#3d352e] hover:border-[#c9a66b]/30 transition-colors"
+              >
+                <h3 className="text-lg font-bold text-[#f5ede6] mb-3 leading-snug">
+                  {field.title}
+                </h3>
+                <p className="text-[#a89a8c] text-sm leading-relaxed">
+                  {field.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {partners.map((partner) => (
+              <span
+                key={partner}
+                className="px-3 py-2 rounded-full bg-[#2c2520] border border-[#3d352e] text-[#c9a66b] text-sm"
+              >
+                {partner}
+              </span>
+            ))}
           </div>
         </div>
       </ScrollReveal>
