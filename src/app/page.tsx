@@ -334,93 +334,65 @@ function AboutSection() {
 
 // Projects Section
 function ProjectsSection() {
+  const fields = [
+    {
+      title: "AI 이미지 제작",
+      description: "광고, 앨범 커버, 콘셉트 이미지 제작",
+      image: "/assets/project-art.png",
+    },
+    {
+      title: "AI 영상 제작",
+      description: "쇼츠, 홍보 영상, 뮤직비디오형 콘텐츠 제작",
+      image: "/assets/project-video.png",
+    },
+    {
+      title: "AI 음악·사운드",
+      description: "웨딩송, 배경음악, 사운드 디자인 제작",
+      image: "/assets/project-sound.png",
+    },
+    {
+      title: "AI 활용 교육",
+      description: "기업, 학교, 단체 대상 AI 실무 강의",
+      image: "/assets/project-edu.png",
+    },
+  ];
+
   return (
-    <section id="projects" className="py-24 px-6 bg-[#1a1614]">
+    <section id="projects" className="py-20 px-6 bg-[#1a1614]">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
-          프로젝트
+          제작 및 강의 가능 분야
         </h2>
-        <p className="text-[#8b7355] mb-12">
-          AI 기술로 창작한 주요 작품들 (클릭하여 상세 보기)
+        <p className="text-[#8b7355] mb-8">
+          AI 기술을 활용해 제작하거나 강의할 수 있는 분야입니다.
         </p>
 
-        {/* 프로젝트 이미지를 추가할 수 있는 그리드 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="glass-card rounded-xl p-6 hover-lift cursor-pointer group">
-            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden p-8">
-              <div className="relative w-full h-full">
-                <Image
-                  src="/assets/project-art.png"
-                  alt="AI 아트 컬렉션"
-                  fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-500"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {fields.map((field) => (
+            <div
+              key={field.title}
+              className="glass-card rounded-xl p-5 border border-[#3d352e] transition-colors duration-300 hover:border-[#c9a66b]/25 hover:bg-[#2c2520]/40"
+            >
+              <div className="flex items-center justify-between gap-5">
+                <div className="min-w-0">
+                  <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
+                    {field.title}
+                  </h3>
+                  <p className="text-[#a89a8c] text-sm leading-relaxed">
+                    {field.description}
+                  </p>
+                </div>
+                <div className="relative shrink-0 w-20 h-20 rounded-lg bg-[#2c2520] border border-[#3d352e] overflow-hidden p-3">
+                  <Image
+                    src={field.image}
+                    alt={field.title}
+                    fill
+                    className="object-contain p-3"
+                  />
+                </div>
               </div>
             </div>
-            <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
-              AI 아트 컬렉션
-            </h3>
-            <p className="text-[#a89a8c] text-sm">
-              생성형 AI를 활용한 디지털 아트 작품
-            </p>
-          </div>
-
-          <div className="glass-card rounded-xl p-6 hover-lift cursor-pointer group">
-            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden p-8">
-              <div className="relative w-full h-full">
-                <Image
-                  src="/assets/project-video.png"
-                  alt="AI 영상 제작"
-                  fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-            </div>
-            <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
-              AI 영상 제작
-            </h3>
-            <p className="text-[#a89a8c] text-sm">
-              AI 기술을 활용한 영상 콘텐츠 제작
-            </p>
-          </div>
-
-          <div className="glass-card rounded-xl p-6 hover-lift cursor-pointer group">
-            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden p-8">
-              <div className="relative w-full h-full">
-                <Image
-                  src="/assets/project-sound.png"
-                  alt="사운드 디자인"
-                  fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-            </div>
-            <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
-              사운드 디자인
-            </h3>
-            <p className="text-[#a89a8c] text-sm">
-              게임 및 미디어 사운드 디자인
-            </p>
-          </div>
-
-          <div className="glass-card rounded-xl p-6 hover-lift cursor-pointer group">
-            <div className="w-full h-48 bg-[#2c2520] rounded-lg mb-4 flex items-center justify-center overflow-hidden p-8">
-              <div className="relative w-full h-full">
-                <Image
-                  src="/assets/project-edu.png"
-                  alt="AI 교육 콘텐츠"
-                  fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-            </div>
-            <h3 className="text-xl font-semibold text-[#f5ede6] mb-2">
-              AI 교육 콘텐츠
-            </h3>
-            <p className="text-[#a89a8c] text-sm">
-              기업 및 대학 AI 활용 교육
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
